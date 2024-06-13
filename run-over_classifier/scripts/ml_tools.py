@@ -15,6 +15,27 @@ Questo modulo contiene la classe EncoderMLP e le funzioni per eseguire la nested
 """
 
 class EncoderMLP:
+    """
+    Una classe per un Multi-Layer Perceptron (MLP) Encoder.
+
+    Attributi
+    ----------
+    model : MLPRegressor
+        Il modello MLP da utilizzare per l'addestramento e la predizione.
+
+    Metodi
+    -------
+    fit(X)
+        Addestra l'MLPRegressor con i dati forniti.
+
+    transform(X)
+        Ottiene le feature ridotte usando l'output del layer nascosto.
+
+    fit_transform(X)
+        Addestra il modello e trasforma i dati in una sola chiamata.
+    
+    """
+
     def __init__(self, hidden_layer_size=60, max_iter=50, random_state=None, solver='sgd'):
         self.hidden_layer_size = hidden_layer_size
         self.max_iter = max_iter
@@ -33,20 +54,18 @@ class EncoderMLP:
         }
 
     def fit(self, X):
-        """Addestra l'MLPRegressor con i dati forniti."""
         self.model.fit(X, X)
 
     def transform(self, X):
-        """Ottiene le feature ridotte usando l'output del layer nascosto."""
         hidden_layer_output = np.dot(X, self.model.coefs_[0]) + self.model.intercepts_[0]
         activation_func = self.activation_map[self.model.activation]
         hidden_layer_output = activation_func(hidden_layer_output)
         return hidden_layer_output
 
     def fit_transform(self, X):
-        """Addestra il modello e trasforma i dati in una sola chiamata."""
         self.fit(X)
         return self.transform(X)
+
 
 def nested_cv_svm(X, random_seed, decomposition, n_outer_folds=7, n_inner_folds=5, n_components=65, mod_selection_score=accuracy_score, positive_class=0):
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
