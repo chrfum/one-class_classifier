@@ -1,4 +1,5 @@
 import numpy as np 
+import pandas as pd
 from sklearn.svm import OneClassSVM
 from sklearn.neighbors import LocalOutlierFactor
 from sklearn.ensemble import IsolationForest
@@ -65,6 +66,47 @@ class EncoderMLP:
         self.fit(X)
         return self.transform(X)
 
+def load_csv(reduced=True):
+    """
+    Carica il dataset dal file CSV e, opzionalmente, riduce il DataFrame rimuovendo colonne non necessarie
+    e facendo la pulizia dei dati.
+
+    Parametri:
+    reduced : bool, opzionale
+        Se True, riduce il DataFrame rimuovendo colonne nulle, duplicate e le colonne relative ai totali (default è True).
+
+    Restituisce:
+    pandas.DataFrame
+        Il DataFrame caricato e, se richiesto, ridotto e pulito.
+    """
+
+    df = pd.read_csv("../data/run-over-dataset.csv")
+
+    if reduced: 
+        columns_to_drop = ['VERBALE', 'DATA', 'Tot Testa', 'Tot Torace', 'Tot Addome', 'Tot Scheletro',
+                        'Totale', 'Tot Volta cranica', 'Tot Base cranica', 
+                        'Tot Neuroc.', 'Tot Splancnoc.', 'Tot Testa',
+                        'Tot Tratto toracico', 'Tot Tratto lombare', 'Tot Rachide',
+                        ' Totale coste', 'Sterno in toto', 'Tot Bacino', 'I costa dx', 'II costa dx',
+                        'III costa dx', 'IV costa dx', 'V costa dx', 'VI costa dx', 'VII costa dx', 
+                        'VIII costa dx', 'IX costa dx', 'X costa dx', 'XI costa dx', 'XII costa dx',
+                        'I costa sx', 'II costa sx', 'III costa sx', 'IV costa sx', 'V costa sx', 
+                        'VI costa sx', 'VII costa sx', 'VIII costa sx', 'IX costa sx', 
+                        'X costa sx', 'XI costa sx', 'XII costa sx']
+
+        df = df.drop(columns=columns_to_drop)
+
+        df['ALTEZZA'] = [int(float(h.replace(',', '.'))*100) for h in df['ALTEZZA']]
+        df['PESO'] = [int(float(str(h).replace(',', '.'))) for h in df['PESO']]
+        df['BMI'] = [float(str(h).replace(',', '.')) for h in df['BMI']]
+
+        num_unique_values = df.nunique()
+        constant_columns = num_unique_values[num_unique_values == 1].index.tolist()
+
+        df = df.drop(columns=constant_columns)
+        df = df.T.drop_duplicates().T
+
+    return df
 
 def nested_cv_svm(X, random_seed, decomposition, log_filename, n_outer_folds=7, n_inner_folds=5, n_components=65, mod_selection_score=accuracy_score, positive_class=0):
     """
