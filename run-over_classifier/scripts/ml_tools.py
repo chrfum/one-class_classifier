@@ -5,13 +5,12 @@ from sklearn.ensemble import IsolationForest
 from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import f1_score, precision_score, recall_score, accuracy_score
 from sklearn.preprocessing import StandardScaler, MinMaxScaler, RobustScaler
-from sklearn.pipeline import Pipeline
 from sklearn.neural_network import MLPRegressor
 import itertools
 import logging
 
 """
-mlp_tools.py
+ml_tools.py
 
 Questo modulo contiene la classe EncoderMLP e le funzioni per eseguire la nested cross-validation.
 """
