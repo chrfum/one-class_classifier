@@ -261,23 +261,23 @@ def nested_cv_svm(X, random_seed, decomposition, log_filename, n_outer_folds=7, 
         recall_scores.append(recall)
         f1_scores.append(f1)
 
-    logging.info(f"algorithm: OneClassSVM, 
-                 positive class: {positive_class},
-                 best kernel: {best_overall_params['kernel']}, 
-                 best gamma: {best_overall_params['gamma']}, 
-                 best nu: {best_overall_params['nu']},
-                 n_components: {n_components},
-                 best scaler: {best_overall_params['components']},
-                 score used for model selection: {mod_selection_score.__name__},
-                 accuracy mean: {np.mean(accuracy_scores) * 100},
-                 accuracy std: {np.std(accuracy_scores) * 100},
-                 precision mean: {np.mean(precision_scores) * 100},
-                 precision std: {np.std(precision_scores) * 100},
-                 recall mean: {np.mean(recall_scores) * 100},
-                 recal std: {np.std(recall_scores) * 100},
-                 f1 mean: {np.mean(f1_scores) * 100},
-                 f1 std: {np.std(f1_scores) * 100},
-                 best overall accuracy: {best_overall_accuracy * 100}")
+    logging.info(f"algorithm: OneClassSVM, "
+             f"positive class: {positive_class}, "
+             f"best kernel: {best_overall_params['kernel']}, "
+             f"best gamma: {best_overall_params['gamma']}, "
+             f"best nu: {best_overall_params['nu']}, "
+             f"n_components: {n_components}, "
+             f"best scaler: {best_overall_params['components']}, "
+             f"score used for model selection: {mod_selection_score.__name__}, "
+             f"accuracy mean: {np.mean(accuracy_scores) * 100}, "
+             f"accuracy std: {np.std(accuracy_scores) * 100}, "
+             f"precision mean: {np.mean(precision_scores) * 100}, "
+             f"precision std: {np.std(precision_scores) * 100}, "
+             f"recall mean: {np.mean(recall_scores) * 100}, "
+             f"recall std: {np.std(recall_scores) * 100}, "
+             f"f1 mean: {np.mean(f1_scores) * 100}, "
+             f"f1 std: {np.std(f1_scores) * 100}, "
+             f"best overall accuracy: {best_overall_accuracy * 100}")
     return 
 
 
@@ -424,23 +424,24 @@ def nested_cv_lof(X, random_seed, decomposition, log_filename, n_outer_folds=7, 
         recall_scores.append(recall)
         f1_scores.append(f1)
 
-    logging.info(f"algorithm: LocalOutlierFactor, 
-                 positive class: {positive_class},
-                 best n_neighbors: {best_overall_params['n_neighbors']}, 
-                 best contamination: {best_overall_params['contamination']}, 
-                 best metric: {best_overall_params['metric']},
-                 n_components: {n_components},
-                 best scaler: {best_overall_params['components']},
-                 score used for model selection: {mod_selection_score.__name__},
-                 accuracy mean: {np.mean(accuracy_scores) * 100},
-                 accuracy std: {np.std(accuracy_scores) * 100},
-                 precision mean: {np.mean(precision_scores) * 100},
-                 precision std: {np.std(precision_scores) * 100},
-                 recall mean: {np.mean(recall_scores) * 100},
-                 recal std: {np.std(recall_scores) * 100},
-                 f1 mean: {np.mean(f1_scores) * 100},
-                 f1 std: {np.std(f1_scores) * 100},
-                 best overall accuracy: {best_overall_accuracy * 100}")
+    logging.info(f"algorithm: LocalOutlierFactor, "
+             f"positive class: {positive_class}, "
+             f"best n_neighbors: {best_overall_params['n_neighbors']}, "
+             f"best contamination: {best_overall_params['contamination']}, "
+             f"best metric: {best_overall_params['metric']}, "
+             f"n_components: {n_components}, "
+             f"best scaler: {best_overall_params['components']}, "
+             f"score used for model selection: {mod_selection_score.__name__}, "
+             f"accuracy mean: {np.mean(accuracy_scores) * 100}, "
+             f"accuracy std: {np.std(accuracy_scores) * 100}, "
+             f"precision mean: {np.mean(precision_scores) * 100}, "
+             f"precision std: {np.std(precision_scores) * 100}, "
+             f"recall mean: {np.mean(recall_scores) * 100}, "
+             f"recall std: {np.std(recall_scores) * 100}, "
+             f"f1 mean: {np.mean(f1_scores) * 100}, "
+             f"f1 std: {np.std(f1_scores) * 100}, "
+             f"best overall accuracy: {best_overall_accuracy * 100}")
+
     return 
 
 def nested_cv_if(X, random_seed, decomposition, log_filename, n_outer_folds=7, n_inner_folds=5, n_components=65, mod_selection_score=accuracy_score, positive_class=0):
@@ -584,21 +585,22 @@ def nested_cv_if(X, random_seed, decomposition, log_filename, n_outer_folds=7, n
         recall_scores.append(recall)
         f1_scores.append(f1)
 
-    logging.info(f"algorithm: IsolationForest, 
-                 positive class: {positive_class},
-                 best n_estimators: {best_overall_params['n_estimators']}, 
-                 best contamination: {best_overall_params['contamination']}, 
-                 best max_features: {best_overall_params['max_features']},
-                 n_components: {n_components},
-                 best scaler: {best_overall_params['components']},
-                 score used for model selection: {mod_selection_score.__name__},
-                 accuracy mean: {np.mean(accuracy_scores) * 100},
-                 accuracy std: {np.std(accuracy_scores) * 100},
-                 precision mean: {np.mean(precision_scores) * 100},
-                 precision std: {np.std(precision_scores) * 100},
-                 recall mean: {np.mean(recall_scores) * 100},
-                 recal std: {np.std(recall_scores) * 100},
-                 f1 mean: {np.mean(f1_scores) * 100},
-                 f1 std: {np.std(f1_scores) * 100},
-                 best overall accuracy: {best_overall_accuracy * 100}")
+    logging.info(f"algorithm: IsolationForest, "
+             f"positive class: {positive_class}, "
+             f"best n_estimators: {best_overall_params['n_estimators']}, "
+             f"best contamination: {best_overall_params['contamination']}, "
+             f"best max_features: {best_overall_params['max_features']}, "
+             f"n_components: {n_components}, "
+             f"best scaler: {best_overall_params['components']}, "
+             f"score used for model selection: {mod_selection_score.__name__}, "
+             f"accuracy mean: {np.mean(accuracy_scores) * 100}, "
+             f"accuracy std: {np.std(accuracy_scores) * 100}, "
+             f"precision mean: {np.mean(precision_scores) * 100}, "
+             f"precision std: {np.std(precision_scores) * 100}, "
+             f"recall mean: {np.mean(recall_scores) * 100}, "
+             f"recall std: {np.std(recall_scores) * 100}, "
+             f"f1 mean: {np.mean(f1_scores) * 100}, "
+             f"f1 std: {np.std(f1_scores) * 100}, "
+             f"best overall accuracy: {best_overall_accuracy * 100}")
+
     return 
