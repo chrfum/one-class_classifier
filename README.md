@@ -1,6 +1,6 @@
 # one-class_classifier
 
-Tecniche di classificazione mono-classe per problemi di medicina legale
+Tecniche di classificazione mono-classe per problemi di medicina legale.
 
 ## mltools.py
 
@@ -18,3 +18,17 @@ Assicurati di avere installato [Anaconda](https://www.anaconda.com/products/indi
 
    ```sh
    conda create --name nested_cv_env python=3.8
+
+2. **Attivazione dell'Ambiente Virtuale**
+
+   ```sh
+   conda activate nested_cv_env
+
+3. **Installazione delle dipendenze**
+
+   Apri il terminale e installa le dipendenze con pip:
+
+   ```sh
+   pip install numpy
+   pip install pandas
+   pip install sklearn
