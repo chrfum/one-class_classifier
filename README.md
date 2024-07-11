@@ -44,6 +44,8 @@ Assicurati di avere installato [Anaconda](https://www.anaconda.com/products/indi
 
 2. **Caricamento del Dataset**
 
+   Carica il dataset relativo:
+
    ```python
    from mltools import load_csv
 
@@ -51,6 +53,8 @@ Assicurati di avere installato [Anaconda](https://www.anaconda.com/products/indi
    ```
 
 3. **Esecuzione della Nested Cross-Validation**
+   
+   Esegui la Nested Cross-Validation specificando i parametri necessari:
 
    ```python
    from mltools import load_csv, nested_cv_svm, get_random_seed
@@ -58,7 +62,7 @@ Assicurati di avere installato [Anaconda](https://www.anaconda.com/products/indi
 
    X = load_csv(reduced=True)
    random_seed = get_random_seed()
-   
+
    nested_cv_svm(X, random_seed, PCA, 'nested_cv_svm_pca.log', n_components=85)
    ```
 
