@@ -66,6 +66,14 @@ class EncoderMLP:
         self.fit(X)
         return self.transform(X)
 
+def get_random_seed():
+    """
+    Restituisce il random seed utilizzato negli esperimenti.
+    """
+
+    return 3355825
+
+
 def load_csv(reduced=True):
     """
     Carica il dataset dal file CSV e, opzionalmente, riduce il DataFrame rimuovendo colonne non necessarie
