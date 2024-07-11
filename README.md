@@ -26,7 +26,7 @@ Assicurati di avere installato [Anaconda](https://www.anaconda.com/products/indi
 
 3. **Installazione delle dipendenze**
 
-   Apri il terminale e installa le dipendenze con pip:
+   Apri il terminale e installa le dipendenze con [pip](https://pypi.org/project/pip/):
 
    ```sh
    pip install numpy
