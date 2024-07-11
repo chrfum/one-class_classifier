@@ -4,7 +4,7 @@ Tecniche di classificazione mono-classe per problemi di medicina legale.
 
 ## mltools.py
 
-Questo modulo permette di effettuare delle Nested Cross-Validation sul dataset run-over, utilizzando diversi algoritmi: OneClassSVM, LocalOutlierFactor e IsolationForest, e utilizzando diverse tecniche per la riduzione delle dimensionalità: PCA, TruncatedSVD, FastICA e EncoderMLP (una classe per la riduzione presente nel modulo basata su un MLPRegressor).
+Questo modulo permette di effettuare delle Nested Cross-Validation sul dataset run-over, utilizzando diversi algoritmi: `OneClassSVM`, `LocalOutlierFactor` e `IsolationForest`, e utilizzando diverse tecniche per la riduzione delle dimensionalità: `PCA`, `TruncatedSVD`, `FastICA` e `EncoderMLP` (una classe per la riduzione presente nel modulo basata su un `MLPRegressor`).
 
 ## Prerequisiti
 
