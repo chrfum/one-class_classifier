@@ -32,3 +32,13 @@ Assicurati di avere installato [Anaconda](https://www.anaconda.com/products/indi
    pip install numpy
    pip install pandas
    pip install sklearn
+
+## Utilizzo del modulo
+
+1. **Importa il modulo**
+
+   Assicurati che il modulo importato sia nella tua directory di lavoro:
+
+   ```python
+   from mltools import load_csv
+   
