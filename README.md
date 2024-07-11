@@ -50,13 +50,15 @@ Assicurati di avere installato [Anaconda](https://www.anaconda.com/products/indi
    X = load_csv(reduced=True)
    ```
 
-3. **Esecuzione della Nested_cross_validation**
+3. **Esecuzione della Nested Cross-Validation**
 
    ```python
    from mltools import load_csv, nested_cv_svm, get_random_seed
    from sklearn.decomposition import PCA
 
    X = load_csv(reduced=True)
-   nested_cv_svm(X, get_random_seed(), PCA, 'nested_cv_svm_pca.log', n_components=85)
+   random_seed = get_random_seed()
+   
+   nested_cv_svm(X, random_seed, PCA, 'nested_cv_svm_pca.log', n_components=85)
    ```
 
